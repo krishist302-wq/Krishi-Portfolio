@@ -218,32 +218,38 @@ const Hero = () => {
               <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </motion.a>
           </div>
-
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-8 pt-8 border-t border-white/10">
-            <div className="flex flex-col">
-              <span className="text-[10px] uppercase tracking-widest text-white/40 mb-1 font-bold">Location</span>
-              <span className="text-xs font-medium flex items-center gap-2">
-                <MapPin className="w-3 h-3 text-accent" /> 
-                Mumbai, India
-              </span>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-[10px] uppercase tracking-widest text-white/40 mb-1 font-bold">Availability</span>
-              <span className="text-xs font-medium flex items-center gap-2">
-                <Zap className="w-3 h-3 text-green-500" /> 
-                Open for opportunities
-              </span>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-[10px] uppercase tracking-widest text-white/40 mb-1 font-bold">Looking for</span>
-              <span className="text-xs font-medium flex items-center gap-2">
-                <Briefcase className="w-3 h-3 text-accent" /> 
-                Digital Marketing / Social Media Executive
-              </span>
-            </div>
-          </div>
         </div>
       </motion.div>
+    </section>
+  );
+};
+
+const MetadataSection = () => {
+  return (
+    <section className="py-12 px-6 md:px-20 border-t border-white/5 bg-charcoal/50">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+        <div className="flex flex-col">
+          <span className="text-[10px] uppercase tracking-widest text-white/40 mb-1 font-bold">Location</span>
+          <span className="text-xs font-medium flex items-center gap-2">
+            <MapPin className="w-3 h-3 text-accent" /> 
+            Mumbai, India
+          </span>
+        </div>
+        <div className="flex flex-col">
+          <span className="text-[10px] uppercase tracking-widest text-white/40 mb-1 font-bold">Availability</span>
+          <span className="text-xs font-medium flex items-center gap-2">
+            <Zap className="w-3 h-3 text-green-500" /> 
+            Open for opportunities
+          </span>
+        </div>
+        <div className="flex flex-col">
+          <span className="text-[10px] uppercase tracking-widest text-white/40 mb-1 font-bold">Looking for</span>
+          <span className="text-xs font-medium flex items-center gap-2">
+            <Briefcase className="w-3 h-3 text-accent" /> 
+            Digital Marketing / Social Media Executive
+          </span>
+        </div>
+      </div>
     </section>
   );
 };
@@ -584,6 +590,7 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
+        <MetadataSection />
         <ImpactSection />
         <WorkSection />
         <SkillsSection />
