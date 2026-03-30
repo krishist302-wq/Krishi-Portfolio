@@ -550,7 +550,7 @@ const ContactSection = () => {
           </button>
           
           <a 
-            href="https://www.linkedin.com/in/krishi-thakkar" 
+            href="https://www.linkedin.com/in/krishi-thakkar-ab16652a9" 
             target="_blank" 
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-4 p-6 bg-white/10 border border-white/20 rounded-2xl hover:bg-white/20 transition-all"
@@ -570,7 +570,7 @@ const Footer = () => {
       <span className="text-[10px] uppercase tracking-[0.3em] text-white/30 font-bold">© 2026 Krishi Thakkar</span>
       <div className="flex gap-8">
         <a 
-          href="https://www.linkedin.com/in/krishi-thakkar" 
+          href="https://www.linkedin.com/in/krishi-thakkar-ab16652a9" 
           target="_blank" 
           rel="noopener noreferrer"
           className="text-[10px] uppercase tracking-[0.3em] text-white/30 hover:text-white font-bold transition-colors"
