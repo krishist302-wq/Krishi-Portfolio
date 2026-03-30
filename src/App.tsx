@@ -121,7 +121,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 px-6 py-8 flex justify-between items-center mix-blend-difference">
+    <nav className="absolute top-0 left-0 w-full z-50 px-6 py-8 flex justify-between items-center">
       <motion.div 
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
@@ -182,7 +182,7 @@ const Navbar = () => {
 
 const Hero = () => {
   return (
-    <section className="min-h-screen flex flex-col justify-center px-6 md:px-20 relative overflow-hidden grid-bg">
+    <section className="min-h-screen flex flex-col justify-center px-6 md:px-20 relative overflow-hidden grid-bg pt-20">
       <div className="absolute top-1/4 right-10 w-64 h-64 bg-accent/10 rounded-full blur-3xl animate-pulse" />
       
       <motion.div
@@ -201,10 +201,11 @@ const Hero = () => {
           <span className="text-stroke hover:text-white transition-all duration-500 cursor-default">THAKKAR</span>
         </h1>
 
-        <div className="flex flex-col md:flex-row md:items-end gap-8 md:gap-20">
-          <p className="max-w-md text-white/60 text-lg leading-relaxed">
-            Driving measurable growth through performance marketing, strategic content, and data-driven insights. Based in Mumbai, scaling brands globally.
-          </p>
+        <div className="flex flex-col gap-8">
+          <div className="max-w-md text-white/60 text-lg leading-relaxed space-y-2">
+            <p>Driving measurable growth through performance marketing, strategic content, and data-driven insights.</p>
+            <p>Based in Mumbai, scaling brands globally.</p>
+          </div>
           
           <div className="flex gap-4">
             <motion.a
@@ -217,26 +218,30 @@ const Hero = () => {
               <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </motion.a>
           </div>
-        </div>
-      </motion.div>
 
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1 }}
-        className="absolute bottom-10 left-6 md:left-20 flex flex-wrap gap-8"
-      >
-        <div className="flex flex-col">
-          <span className="text-[10px] uppercase tracking-widest text-white/40 mb-1">Location</span>
-          <span className="text-xs font-medium flex items-center gap-1"><MapPin className="w-3 h-3 text-accent" /> Mumbai, India</span>
-        </div>
-        <div className="flex flex-col">
-          <span className="text-[10px] uppercase tracking-widest text-white/40 mb-1">Availability</span>
-          <span className="text-xs font-medium flex items-center gap-1"><Zap className="w-3 h-3 text-green-500" /> Open for Opportunities</span>
-        </div>
-        <div className="flex flex-col">
-          <span className="text-[10px] uppercase tracking-widest text-white/40 mb-1">Looking for</span>
-          <span className="text-xs font-medium flex items-center gap-1"><Briefcase className="w-3 h-3 text-accent" /> Digital Marketing / Social Media Executive</span>
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-8 pt-8 border-t border-white/10">
+            <div className="flex flex-col">
+              <span className="text-[10px] uppercase tracking-widest text-white/40 mb-1 font-bold">Location</span>
+              <span className="text-xs font-medium flex items-center gap-2">
+                <MapPin className="w-3 h-3 text-accent" /> 
+                Mumbai, India
+              </span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[10px] uppercase tracking-widest text-white/40 mb-1 font-bold">Availability</span>
+              <span className="text-xs font-medium flex items-center gap-2">
+                <Zap className="w-3 h-3 text-green-500" /> 
+                Open for opportunities
+              </span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[10px] uppercase tracking-widest text-white/40 mb-1 font-bold">Looking for</span>
+              <span className="text-xs font-medium flex items-center gap-2">
+                <Briefcase className="w-3 h-3 text-accent" /> 
+                Digital Marketing / Social Media Executive
+              </span>
+            </div>
+          </div>
         </div>
       </motion.div>
     </section>
@@ -276,17 +281,15 @@ const ImpactSection = () => {
 const WorkSection = () => {
   return (
     <section id="work" className="py-32 px-6 md:px-20 light-section">
-      <div className="flex flex-col md:flex-row justify-between items-end mb-20">
-        <div>
-          <h2 className="text-xs uppercase tracking-[0.4em] text-accent font-bold mb-4">Experience</h2>
-          <h3 className="text-4xl md:text-6xl font-display font-bold tracking-tighter">SELECTED WORK</h3>
-          <p className="text-charcoal/40 text-[10px] uppercase tracking-widest font-bold mt-4">
-            Brands & organizations I’ve worked with: Urja Special School, Sp DigiTech Agency, Barcode Agency, Samsung
-          </p>
-        </div>
-        <div className="hidden md:block text-right text-charcoal/40 text-sm max-w-xs">
-          A track record of delivering results for agencies and educational institutions through data-driven campaigns.
-        </div>
+      <div className="mb-20">
+        <h2 className="text-xs uppercase tracking-[0.4em] text-accent font-bold mb-4">Experience</h2>
+        <h3 className="text-4xl md:text-6xl font-display font-bold tracking-tighter mb-4">SELECTED WORK</h3>
+        <p className="text-charcoal/60 text-lg font-bold uppercase tracking-wider">
+          Data-driven campaigns for agencies and educational institutions.
+        </p>
+        <p className="text-charcoal/40 text-[10px] uppercase tracking-widest font-bold mt-2">
+          Brands: Urja Special School, Sp DigiTech Agency, Barcode Agency, Samsung
+        </p>
       </div>
 
       <div className="flex flex-col">
@@ -391,24 +394,25 @@ const SkillsSection = () => {
 
 const HowIWork = () => {
   const steps = [
-    { title: 'Understand', desc: 'I start with understanding the brand’s audience and current metrics.' },
-    { title: 'Plan', desc: 'Then I plan content calendars and ad structures that are realistic for the team.' },
-    { title: 'Optimize', desc: 'I track results weekly and adjust creatives, copies, or targeting based on performance.' },
+    { title: 'Understand', desc: 'Understand the brand, audience, and current metrics.' },
+    { title: 'Plan', desc: 'Plan content and ad structure that fits the goals and resources.' },
+    { title: 'Optimize', desc: 'Launch, monitor, and optimize weekly based on performance data.' },
   ];
 
   return (
     <section className="py-32 px-6 md:px-20 bg-white/[0.02]">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-xs uppercase tracking-[0.4em] text-accent font-bold mb-12 text-center">How I Work</h2>
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="space-y-8">
           {steps.map((step, i) => (
-            <div key={i} className="p-8 glass rounded-3xl relative overflow-hidden group">
-              <div className="text-6xl font-display font-bold text-white/5 absolute -top-4 -right-4 group-hover:text-accent/10 transition-colors">0{i+1}</div>
-              <h4 className="text-xl font-bold mb-4 flex items-center gap-2">
-                <CheckCircle2 className="w-5 h-5 text-accent" />
-                {step.title}
-              </h4>
-              <p className="text-sm text-white/50 leading-relaxed">{step.desc}</p>
+            <div key={i} className="flex items-start gap-6 group">
+              <div className="mt-1">
+                <CheckCircle2 className="w-6 h-6 text-accent" />
+              </div>
+              <div>
+                <h4 className="text-xl font-bold mb-2">{step.title}</h4>
+                <p className="text-white/50 leading-relaxed text-lg">{step.desc}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -445,14 +449,10 @@ const AboutSection = () => {
             </p>
           </div>
           
-          <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="mt-16 grid grid-cols-1 gap-6">
             <div className="p-6 bg-charcoal/5 rounded-2xl">
               <h4 className="text-sm font-bold uppercase tracking-widest mb-2">Education</h4>
               <p className="text-xs text-charcoal/50">BBA (Digital Business)<br/>KES Shroff College</p>
-            </div>
-            <div className="p-6 bg-charcoal/5 rounded-2xl">
-              <h4 className="text-sm font-bold uppercase tracking-widest mb-2">Certifications</h4>
-              <p className="text-xs text-charcoal/50">Brand Analysis, AI in Marketing, Digital Communication</p>
             </div>
           </div>
         </div>
@@ -478,6 +478,37 @@ const AboutSection = () => {
   );
 };
 
+const CertificationsSection = () => {
+  const certs = [
+    { name: 'Brand Analysis and Consumer Valuation', url: 'https://drive.google.com/file/d/19vMU6nVNUMqe_0UScTNLXHfN1N76go5v/view?usp=sharing' },
+    { name: 'AI in Digital Marketing', url: 'https://drive.google.com/file/d/1sju7AvJZlQ9bNsJlaLbLv2lW54GP9RWV/view?usp=sharing' },
+    { name: 'Digital Marketing Communication', url: 'https://drive.google.com/file/d/1H2-XEAwRbii9iCLwvAe-wklKSU2iTnQb/view?usp=sharing' },
+    { name: 'Entrepreneurship and Innovation Management', url: 'https://drive.google.com/file/d/1RNMLgg2tmenGxhU67NyrRtwthVokeFNm/view?usp=sharing' },
+  ];
+
+  return (
+    <section className="py-32 px-6 md:px-20 light-section border-t border-charcoal/5">
+      <div className="max-w-4xl">
+        <h2 className="text-xs uppercase tracking-[0.4em] text-accent font-bold mb-12">Certifications</h2>
+        <div className="grid gap-6">
+          {certs.map((cert, i) => (
+            <a 
+              key={i}
+              href={cert.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xl md:text-2xl font-bold text-charcoal hover:text-accent flex items-center gap-4 group transition-colors"
+            >
+              <ArrowUpRight className="w-6 h-6 opacity-0 group-hover:opacity-100 transition-opacity text-accent" />
+              {cert.name}
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const ContactSection = () => {
   const [copied, setCopied] = useState(false);
   const email = "krishist302@gmail.com";
@@ -494,30 +525,10 @@ const ContactSection = () => {
       
       <div className="relative z-10 flex flex-col md:flex-row justify-between items-center gap-12">
         <div className="text-center md:text-left">
-          <h2 className="text-5xl md:text-8xl font-display font-bold tracking-tighter mb-6">LET'S SCALE <br/>TOGETHER</h2>
+          <h2 className="text-5xl md:text-8xl font-display font-bold tracking-tighter mb-6 uppercase">LET'S SCALE <br/>TOGETHER</h2>
           <p className="text-white/80 text-lg max-w-md mb-8">
             Ready to take your brand's digital presence to the next level? Let's connect and discuss your goals.
           </p>
-          
-          <div className="space-y-6">
-            <div className="flex flex-col gap-1">
-              <span className="text-[10px] uppercase tracking-widest text-white/60 font-bold">Email</span>
-              <span className="text-xl md:text-2xl font-display font-bold">{email}</span>
-              <p className="text-xs text-white/40">Copy and paste this email into your mail app to contact me.</p>
-            </div>
-            
-            <div className="flex flex-col gap-1">
-              <span className="text-[10px] uppercase tracking-widest text-white/60 font-bold">LinkedIn</span>
-              <a 
-                href="https://www.linkedin.com/in/krishi-thakkar" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-xl md:text-2xl font-display font-bold hover:underline underline-offset-8 decoration-white/30"
-              >
-                linkedin.com/in/krishi-thakkar
-              </a>
-            </div>
-          </div>
         </div>
 
         <div className="flex flex-col gap-6 w-full md:w-auto">
@@ -578,6 +589,7 @@ export default function App() {
         <SkillsSection />
         <HowIWork />
         <AboutSection />
+        <CertificationsSection />
         <ContactSection />
       </main>
       <Footer />
