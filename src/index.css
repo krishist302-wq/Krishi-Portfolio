@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --color-charcoal: #121212;
+  --color-accent: #e67e22; /* Muted warm orange */
+  --color-paper: #f8f8f8;
+}
+
+@layer base {
+  body {
+    @apply bg-charcoal text-[#f5f5f5] selection:bg-accent selection:text-white;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02";
+  }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.grid-bg {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.text-stroke {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+  color: transparent;
+}
+
+.text-stroke:hover {
+  -webkit-text-stroke: 1px var(--color-accent);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.light-section {
+  @apply bg-paper text-charcoal;
+}
+
+.light-section .text-stroke {
+  -webkit-text-stroke: 1px rgba(18, 18, 18, 0.2);
+}
+
+.light-section .text-stroke:hover {
+  -webkit-text-stroke: 1px var(--color-accent);
+}
